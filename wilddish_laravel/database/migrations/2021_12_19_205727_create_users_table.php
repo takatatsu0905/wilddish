@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->dateTime('update_at');
         });
     }
+    // test
 
     /**
      * Reverse the migrations.
