@@ -16,10 +16,15 @@ class RecipeController extends Controller
      */
     public function index(Request $request)
     {
-        $recipes = Recipe::orderBy('created_at', 'asc')->get();
-        return view('recipes.index', [
-            'recipes' => $recipes,
-        ]);
+        $recipe = Recipe::find(27);
+        
+        return view('recipes.index', ['recipe' => $recipe]);
+    }
+
+    public function list()
+    {
+        $recipes = Recipe::all();
+        return view('recipes.list', ['recipes' => $recipes]);
     }
 
     public function form()
@@ -44,4 +49,6 @@ class RecipeController extends Controller
 
         return redirect('/forms');
     }
+
+    
 }
