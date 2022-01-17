@@ -40,4 +40,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ユーザーの保持する全レシピ
+     */
+    public function recipes()
+    {
+        return $this->hasMany(Recipe::class);
+    }
 }
