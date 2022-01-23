@@ -21,10 +21,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('index');
+Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('recipes');
 
 Route::get('/forms', [App\Http\Controllers\RecipeController::class, 'form'])->name('form');
 
 Route::get('/list', [App\Http\Controllers\RecipeController::class, 'list'])->name('list');
 
-Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'store'])->name('reicpe');
+Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'store'])->name('recipe');
+
+
+
+
+
