@@ -38,6 +38,20 @@
         <div class="toukourecipe-box">
             <div class="toukourecipe">
                 <p>投稿レシピ</p>
+                @foreach($recipes as $recipe)
+                    <div class="image_name">
+                        <img src="/storage/{{ $recipe->image_name }}" width="200px" height="200px">
+                    </div>
+                    <div class="title">
+                        {{$recipe->title}}
+                    </div>
+                    <div class="tool_id">
+                        {{$recipe->tool_id}}
+                    </div>
+                    <div class="ingredients">
+                        {{$recipe->ingredients}}
+                    </div>
+                @endforeach
             </div>
             <a href="{{route('form')}}">{{ __('レシピ投稿') }}</a>
         </div>
