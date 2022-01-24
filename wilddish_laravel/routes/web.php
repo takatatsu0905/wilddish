@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use wilddish_laravel\app\Http\Controllers\topController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,9 @@ Route::get('/list', [App\Http\Controllers\RecipeController::class, 'list'])->nam
 Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'store'])->name('recipe');
 
 
+Route::get('/top', [App\Http\Controllers\topController::class, 'index'])->name('top');
+
+Route::post('/top', [App\Http\Controllers\topController::class, 'index'])->name('top');
 
 
 
