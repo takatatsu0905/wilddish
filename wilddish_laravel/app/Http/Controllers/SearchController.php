@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Users;
 
-class ProfileUpdateController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,8 @@ class ProfileUpdateController extends Controller
      */
     public function index()
     {
-
-        
-        //プロフィール編集画面を返す
-        return view('ProfileUpdate');
-
+        //
+        return view('search');
     }
 
     /**
@@ -40,13 +35,7 @@ class ProfileUpdateController extends Controller
      */
     public function store(Request $request)
     {
-        // Users::create([
-        //     ''
-        // ])
-
-        
-
-        return redirect()->route('profile');
+        //
     }
 
     /**
@@ -68,10 +57,7 @@ class ProfileUpdateController extends Controller
      */
     public function edit($id)
     {
-        
-        $profile = Users::find($id);
         //
-        return view('ProfileUpdate',compact('profile'));
     }
 
     /**
@@ -84,15 +70,6 @@ class ProfileUpdateController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $profile=Users::find($id);
-        $profile->self_introduction=$request->input('introtext');
-        $filename=request()->file('image')->getClientOriginalName();
-        // $profile['image']=request('image')->storeAs('public/images', $filename);
-        $profile->image_name=request('image')->storeAs('public/images', $filename);
-        $profile->save();
-
-        return view('profile',compact('profile'));
-    
     }
 
     /**

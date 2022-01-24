@@ -14,16 +14,19 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('status',20);
-            $table->string('name',100);
-            $table->string('email',254);
-            $table->string('password',128);
-            $table->string('image_name',100);
-            $table->text('serf_introduction',500);
-            $table->timestamps();
+
+            $table->increments('id');
+            $table->string('status')->default('active');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->string('image_name')->nullable();
+            $table->text('self_introduction')->nullable();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
+    // test
 
     /**
      * Reverse the migrations.

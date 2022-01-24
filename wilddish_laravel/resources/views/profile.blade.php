@@ -11,6 +11,7 @@
     <!-- ヘッダー -->
     <header>
         <h1>ヘッダー予定</h1>
+        <a href="{{route('search')}}">{{ __('レシピ検索') }}</a>
     </header>
 
     <div class="icon-box">
@@ -23,7 +24,7 @@
     <div class="selfintroduction-box">
         <div class="selfintroduction">
             <p>自己紹介欄</p>
-            <p>{{$profile->serf_introduction}}</p>
+            <p>{{$profile->self_introduction}}</p>
         </div>
         <a href="{{route('profile.edit',['id'=>$profile->id])}}">{{ __('編集') }}</a>
         
@@ -38,6 +39,7 @@
             <div class="toukourecipe">
                 <p>投稿レシピ</p>
             </div>
+            <a href="{{route('form')}}">{{ __('レシピ投稿') }}</a>
         </div>
         <div class="favorite-box">
             <div class="favorite">
