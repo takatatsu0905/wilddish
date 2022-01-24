@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOPページ（仮）</title>
+    <link rel="stylesheet" href="{{ asset('css/top.css') }}">
+
 </head>
 <body class="antialiased">
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -24,6 +26,8 @@
     </div>
 
     <p>Hello World!</p>
-    <img src="{{asset('wilddish_img\キャンプ料理画像1.jpg')}}" alt="">
+    <img class="topimg" src="{{asset('wilddish_img\wilddishトップ画像.png')}}" alt="">
+
+    <p>テストテストテストテスト</p>
 </body>
 </html>
