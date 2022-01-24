@@ -2,6 +2,15 @@
 
 @section('content')
 
+<form method="GET" action="{{route('search')}}">
+        @csrf
+        <div>
+            <label for="form-search">検索</label>
+            <input type="search" name="q" id="form-search">
+        </div>
+        <button type="submit">レシピ検索</button>
+    </form>
+
 @foreach($recipes as $recipe)
 
   <div class="image_name">

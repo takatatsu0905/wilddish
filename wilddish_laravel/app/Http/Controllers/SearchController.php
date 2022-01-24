@@ -98,12 +98,12 @@ class SearchController extends Controller
 
     //検索ワードをループで回してマッチするレコードを探す
     foreach ($keyword_array as $keyword) {
-        $query->where('name', 'like', '%'.$keyword.'%');
+        $query->where('title', 'like', '%'.$keyword.'%');
       }
 
-    $query->select('id','user_id','image_name', 'title');
+    $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
     $recipes=$query->paginate(20);
 
-    return view('search',compact('recipes'));
+    return view('recipes/list',compact('recipes'));
   }
 }

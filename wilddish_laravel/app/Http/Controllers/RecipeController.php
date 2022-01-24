@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Recipe;
+use App\Models\Tool;
 
 class RecipeController extends Controller
 {
+    /**
+     * コンストラクタ
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * レシピ一覧
      *
@@ -16,7 +27,7 @@ class RecipeController extends Controller
      */
     public function index(Request $request)
     {
-        $recipe = Recipe::find(27);
+        $recipe = Recipe::find(12);
         
         return view('recipes.index', ['recipe' => $recipe]);
     }
@@ -29,26 +40,27 @@ class RecipeController extends Controller
 
     public function form()
     {
-        return view('forms.form');
+        $tools = Tool::all();
+        return view('forms.form', compact('tools'));
     }
 
     public function store(Request $request)
     {
-
         $filename = $request->file('image_name')->getClientOriginalName();
 
         $image = $request->file('image_name')->storeAs('',$filename,'public');
 
-        Recipe::create([
-            'user_id' => 0,
+        $recipe = $request->user()->recipes()->create([
             'title' => $request->title,
-            'tool_id' => 0,
             'ingredients' => $request->ingredients,
-            'image_name' => $image
+            'image_name' => $image,
+            'tool_id' => $request->tools
         ]);
 
-        return redirect('/forms');
+        $recipe->tools()->attach(request()->tools);
+        
+        return redirect('/recipes')->with('success','登録完了しました');
+        
     }
 
-    
 }
