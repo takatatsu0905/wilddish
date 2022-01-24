@@ -25,7 +25,7 @@ Route::get('/profile',[App\Http\Controllers\ProfileController::class,'index'])->
 Route::get('/profile/edit/{id}',[App\Http\Controllers\ProfileUpdateController::class,'edit'])->name('profile.edit');
 Route::post('/profile/update/{id}',[App\Http\Controllers\ProfileUpdateController::class,'update'])->name('profile.update');
 // Route::post('/profile/add',[App\Http\Controllers\ProfileUpdateController::class,'store']);
-Route::get('/seach',[App\Http\Controllers\SearchController::class,'index'])->name('search');
+Route::get('/seach',[App\Http\Controllers\SearchController::class,'search'])->name('search');
 
 
 Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('index');

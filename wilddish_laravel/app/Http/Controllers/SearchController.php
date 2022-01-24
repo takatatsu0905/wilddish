@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
@@ -82,4 +83,27 @@ class SearchController extends Controller
     {
         //
     }
+    public function search(Request $request)
+  {
+    $serach=$request->input('q');
+
+    $query=DB::table('recipes');
+
+    //検索ワードの全角スペースを半角スペースに変換
+    $serach_spaceharf=mb_convert_kana($serach, 's');
+
+
+    //検索ワードを半角スペースで区切る
+    $keyword_array=preg_split('/[\s]+/', $serach_spaceharf, -1, PREG_SPLIT_NO_EMPTY);
+
+    //検索ワードをループで回してマッチするレコードを探す
+    foreach ($keyword_array as $keyword) {
+        $query->where('name', 'like', '%'.$keyword.'%');
+      }
+
+    $query->select('id','user_id','image_name', 'title');
+    $recipes=$query->paginate(20);
+
+    return view('search',compact('recipes'));
+  }
 }
