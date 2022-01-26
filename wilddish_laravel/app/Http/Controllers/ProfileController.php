@@ -17,9 +17,9 @@ class ProfileController extends Controller
     public function index()
     {
         $id = 2;
-        $user_id = 2;
+        $user_id = 3;
         $profile = Users::find($id);
-        $recipes = Recipe::all()->where('user_id','2');
+        $recipes = Recipe::all()->where('user_id',$user_id);
         // dd($recipes);
 
             
