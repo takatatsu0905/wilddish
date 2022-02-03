@@ -9,5 +9,27 @@ class Recipe extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','title','tool_id','ingredients','image_name'];
+    protected $fillable = ['title','ingredients','image_name',];
+
+    /**
+     * レシピを保持するユーザーの取得
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * レシピを保持するツールの取得
+     */
+    public function tools()
+    {
+        return $this->belongsToMany(Tool::class)->withTimestamps();
+    }
+
+    public function processes()
+    {
+        return $this->hasMany(Process::class);
+    }
+
 }

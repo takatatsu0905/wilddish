@@ -18,9 +18,7 @@ class CreateRecipesTable extends Migration
             $table->string('status')->default('active');
             $table->integer('user_id')->unsigned()->index();
             $table->string('title');
-            $table->integer('tool_id')->unsigned()->index();
             $table->string('ingredients');
-            $table->text('make')->nullable();
             $table->string('image_name')->nullable();
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ url('recipe') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+<form action="{{ route('recipe') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
         {{ csrf_field() }}
     <div class="container">
       <div class="title">
@@ -10,7 +10,13 @@
       </div>
       <div class="tool">
         <h1>使う調理器具</h1>
-        <input type="text" name="tool">
+        <p>
+          @foreach($tools as $tool)
+          <label>
+              <input type="checkbox" name="tools" value="{{ $tool->id }}">{{ $tool->name }}
+          </label>
+          @endforeach
+        </p>
       </div>
       <div class="ingredients">
         <h1>材料</h1>
