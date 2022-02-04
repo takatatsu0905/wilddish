@@ -1,6 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+
+        margin: 0;
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+        line-height: var(--bs-body-line-height);
+        color: var(--bs-body-color);
+        text-align: var(--bs-body-text-align);
+        background-color:#F4EEDC;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    
+}
+header{
+    /* background: skyblue; */
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.header-yoko{
+    display: flex;
+}
 h1{
     font-size: 30px;
-    text-align: center;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+.to-recipe{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 20px;
+    
+}
+.to-top{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 20px;
+    
 }
 
 .icon-box{
@@ -8,26 +55,56 @@ h1{
     width: 100%;
 }
 
+/* .icon-box button{
+    
+} */
+
+.icon{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.icon img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+h2{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 0px;
+}
 .selfintroduction-box{
     background: chocolate;
     font-size: 17px;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
     /* border: 1px solid; */
     /* margin: 40px; */
 }
 
 .selfintroduction{
-    background: cornflowerblue;
-    border: 1px solid;
-    margin: 40px;
+    /* background: cornflowerblue; */
+    border: 2px solid;
+    border-radius: 5px;
 }
 
-.yokonarabi{
-    display: flex;
+.selfintroduction p{
+    margin: 5px;
+    text-align: left;
+    overflow-wrap: break-word;
 }
+
+
 
 .toukourecipe-box{
     background: darkgreen;
-    width: 50%;
+    
 }
 
 .toukourecipe{
@@ -35,18 +112,6 @@ h1{
     font-size:17px;
     /* border: 1px solid; */
     /* margin: 40px; */
-    width: 50%;
+    
 }
 
-.favorite-box{
-    background: darkmagenta;
-    width: 50%;
-}
-
-.favorite{
-    background: red;
-    font-size: 17px;
-    /* border: 1px solid; */
-    /* margin: 40px; */
-    width: 50%;
-}

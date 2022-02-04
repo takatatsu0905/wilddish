@@ -111,24 +111,35 @@ class SearchController extends Controller
     //     $query->where('title', 'like', '%'.$keyword.'%');
     //   }
 
-      if(!empty($serach)){
-        $query->where('title', 'like', '%'.$serach.'%');
-      }
+    //   if(!empty($serach)){
+    //     $query->where('title', 'like', '%'.$serach.'%');
+    //   }
       if(!empty($tool1)){
-          $query->where('tool_id','1');
+        //   $query->where('tool_id','1');
+        $tools[]='1';
       }
       if(!empty($tool2)){
-        $query->where('tool_id','2');
+        // $query->where('tool_id','2');
+        $tools[]='2';
     }
     if(!empty($tool3)){
-        $query->where('tool_id','3');
+        // $query->where('tool_id','3');
+        $tools[]='3';
     }
     if(!empty($tool4)){
-        $query->where('tool_id','4');
+        // $query->where('tool_id','4');
+        $tools[]='4';
+    }
+
+    if(!empty($tools)){foreach($tools as $tool){
+        $query->where('tool_id',$tool)->where('title', 'like', '%'.$serach.'%');
+        $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
+    }}else{
+        $query->where('title', 'like', '%'.$serach.'%');
     }
 
     
-      $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
+    //   $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
 
 
     $recipes=$query->paginate(20);

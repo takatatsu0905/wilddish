@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Users;
+use App\Models\Recipe;
 
 class ProfileUpdateController extends Controller
 {
@@ -85,13 +86,15 @@ class ProfileUpdateController extends Controller
     {
         //
         $profile=Users::find($id);
+        $user_id = $id;
+        $recipes = Recipe::all()->where('user_id',$user_id);
         $profile->self_introduction=$request->input('introtext');
         $filename=request()->file('image')->getClientOriginalName();
         // $profile['image']=request('image')->storeAs('public/images', $filename);
         $profile->image_name=request('image')->storeAs('public/images', $filename);
         $profile->save();
 
-        return view('profile',compact('profile'));
+        return view('profile',compact('profile','recipes'));
     
     }
 

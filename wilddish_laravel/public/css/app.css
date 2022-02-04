@@ -11294,3 +11294,159 @@ textarea.form-control-lg {
 .topimg{
   height: 500px;
 }
+
+/* profilecss */
+.header-yoko{
+  display: flex;
+}
+h1{
+  font-size: 30px;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+.to-recipe{
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 20px;
+  
+}
+.to-top{
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 20px;
+  
+}
+
+.icon-box{
+  /* background: darkorchid; */
+  width: 100%;
+}
+
+
+
+
+
+.icon{
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.icon img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* border: black solid 1px; */
+}
+h2{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+.editbuttonbox{
+  text-align: center;
+}
+
+.editbutton{
+  border: black solid 1px;
+  
+}
+
+.selfintroduction-box{
+  /* background: chocolate; */
+  font-size: 17px;
+  width: 50%;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  /* border: 1px solid; */
+  /* margin: 40px; */
+}
+
+.selfintroduction{
+  background: white;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.selfintroduction p{
+  margin: 5px;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+
+
+.toukourecipe-box{
+  /* background: darkgreen; */
+  text-align: center;
+  margin-top: 100px;
+}
+
+.toukourecipedai{
+  font-size: 30px;
+  margin-bottom: 50px;
+  border-bottom: black solid 2px;
+  width: 50%;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.setumei{
+  width: 300px;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.toukoureciperaretu{
+  /* background: chartreuse; */
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  margin: auto;
+  align-items: center;
+  border-bottom: black solid 1px;
+  padding-bottom: 20px;
+  width:46%;
+}
+
+.to-recipetoukou{
+  font-size: 30px;
+  padding-top:30px;
+  text-align: center;
+}
+
+.introtext{
+  width: 100%;
+
+  text-align: left;
+  overflow-wrap: break-word;
+  border-radius: 5px;
+}
+
+.iconupdate{
+  text-align: center;
+  padding-top:10px;
+}
+
+.editsubmit{
+  text-align: center;
+}
+
+.editnamebox{
+  text-align: center;
+}
+
+.editname{
+  border-radius: 5px;
+  border: black solid 1px;
+  font-size: 17px;
+}
