@@ -25,10 +25,12 @@
     
     
     <div class="icon-box">
-        <!-- <button type="button" class="editbutton" onclick="location.href='{{route('profile.edit',['id'=>$profile->id])}}'">編集</button> -->
+        
         
         <div class="icon">
+            
             <img src="{{Storage::url($profile->image_name)}}" width="100px">
+            
         </div>
         <h2>{{$profile->name}}</h2>
         <div class="editbuttonbox">

@@ -89,9 +89,10 @@ class ProfileUpdateController extends Controller
         $user_id = $id;
         $recipes = Recipe::all()->where('user_id',$user_id);
         $profile->self_introduction=$request->input('introtext');
+        if(request()->file('image')){
         $filename=request()->file('image')->getClientOriginalName();
         // $profile['image']=request('image')->storeAs('public/images', $filename);
-        $profile->image_name=request('image')->storeAs('public/images', $filename);
+        $profile->image_name=request('image')->storeAs('public/images', $filename);}
         $profile->save();
 
         return view('profile',compact('profile','recipes'));

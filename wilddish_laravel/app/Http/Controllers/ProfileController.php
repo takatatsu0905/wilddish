@@ -16,12 +16,15 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $id = 2;
-        $user_id = $id;
-        $profile = Users::find($id);
-        $recipes = Recipe::all()->where('user_id',$user_id);
+        // $id = 2;
+        // $user_id = $id;
+        // $profile = Users::find($id);
+        $profile = Users::find(\Auth::id());
+        $recipes = Recipe::where('user_id',\Auth::id())->get();
+        // $recipes = Recipe::all()->where('user_id',$user_id);
         // dd($recipes);
 
+     
             
         return view('profile',compact('profile','recipes'));
     }
