@@ -103,4 +103,11 @@ class ProfileController extends Controller
     {
         //
     }
+
+    public function myrecipes()
+    {
+        $recipes = Recipe::where('user_id',\Auth::id())->get();
+        return view('myrecipes', compact('recipes'));
+    }
+
 }
