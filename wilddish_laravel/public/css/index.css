@@ -1,0 +1,9 @@
+.image_name{
+  position: absolute;
+  top: 150px;
+  right: 500px;
+}
+
+.process{
+  display: flex;
+}
