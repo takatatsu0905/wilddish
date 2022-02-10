@@ -16,9 +16,10 @@ class CreateProcessesTable extends Migration
         Schema::create('processes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('recipe_id')->unsigned()->index();
-            $table->string('process_title');
-            $table->text('make');
-            $table->string('image_name');
+            $table->integer('turn')->nullable();
+            $table->string('process_title')->nullable();
+            $table->text('make')->nullable();
+            $table->string('image_name')->nullable();
             $table->timestamps();
         });
     }

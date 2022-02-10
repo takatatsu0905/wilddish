@@ -9,7 +9,7 @@ class Process extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['process_title', 'make', 'image_name'];
+    protected $fillable = ['recipe_id','turn','process_title', 'make', 'image_name'];
 
     public function recipe()
     {

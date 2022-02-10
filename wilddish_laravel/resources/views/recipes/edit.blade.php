@@ -11,7 +11,7 @@
   @section('content')
 </head>
 <body>
-  <form action="{{ route('recipe') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+  <form action="{{ route('update', ['recipeid' =>$recipe->id])}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
           {{ csrf_field() }}
       <div class="container">
         <div class="title">
@@ -21,9 +21,9 @@
         <div class="tool">
           <h1>使う調理器具</h1>
           <p>
-            @foreach($tools as $tool)
+            @foreach($toolList as $tool)
             <label>
-                <input type="checkbox" name="tools[]" value="{{ $tool->id }}">{{ $tool->name }}
+                <input type="checkbox" name="tools[]" value="{{ $tool->id }}" > {{ $tool->name }}
             </label>
             @endforeach
           </p>
@@ -45,13 +45,13 @@
           </div>
           <div class="process02">
             <div class="process2" id="process2">
-              <input type="number"  min="2" max="2" name="turn2"><br>
+              <input type="number" min="2" max="2" name="turn2"><br>
               <input type="text" name="process_title2"><br>
               <input type="file" name="process_image2"><br>
               <textarea name="process_make2" id="" cols="30" rows="10"></textarea><br>
             </div>
             <input type="button" value="表示" onclick="document.getElementById('process2').style.display = 'block';">
-            <input type="button" value="非表示" onclick="document.getElementById('process2').style.display = 'none';">  
+          <input type="button" value="非表示" onclick="document.getElementById('process2').style.display = 'none';">  
           </div>
           <div class="process03">
             <div class="process3" id="process3">
@@ -84,7 +84,7 @@
           <input type="button" value="非表示" onclick="document.getElementById('process5').style.display = 'none';">  
           </div>
         </div>
-        <button type="submit">登録</button>
+        <button type="submit">編集</button>
       </div>
   </form>
 </body>

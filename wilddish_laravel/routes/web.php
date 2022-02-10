@@ -32,13 +32,35 @@ Route::get('/seach',[App\Http\Controllers\SearchController::class,'search'])->na
 Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('recipes');
 
 
+// レシピ内容画面へのルート
+Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('recipes');
+
+// レシピ登録画面へのルート
+
 Route::get('/forms', [App\Http\Controllers\RecipeController::class, 'form'])->name('form');
 
+// レシピ一覧画面へのルート
 Route::get('/list', [App\Http\Controllers\RecipeController::class, 'list'])->name('list');
 
+// レシピ編集画面へのルート
+Route::get('/edit/{id}', [App\Http\Controllers\RecipeController::class, 'edit'])->name('edit');
+
+Route::post('/delete', [App\Http\Controllers\RecipeController::class, 'delete'])->name('delete');
+
+Route::post('/update/{recipeid}', [App\Http\Controllers\RecipeController::class, 'update'])->name('update');
+
+Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process1'])->name('recipe');
+
+Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process2'])->name('recipe');
+
+
+Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process3'])->name('recipe');
+
+Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process4'])->name('recipe');
+
+Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process5'])->name('recipe');
 
 Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'store'])->name('recipe');
-
 
 
 Route::get('/top', [App\Http\Controllers\topController::class, 'index'])->name('top');
