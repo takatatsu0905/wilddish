@@ -1,0 +1,23 @@
+.recipe{
+  display: flex;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  margin-right: 300px;
+  padding-bottom: 50px;
+  border-bottom: black solid 2px;
+}
+.menu{
+  margin-left: 70px;
+}
+.tool{
+  margin-top: 20px;
+  display:inline-block;
+}
+.title{
+  display:block;
+}
+
+
+
+
+

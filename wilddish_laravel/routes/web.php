@@ -29,14 +29,12 @@ Route::post('/profile/update/{id}',[App\Http\Controllers\ProfileUpdateController
 // Route::post('/profile/add',[App\Http\Controllers\ProfileUpdateController::class,'store']);
 Route::get('/seach',[App\Http\Controllers\SearchController::class,'search'])->name('search');
 
-Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('recipes');
-
+Route::get('/profile/myrecipes/{id}',[App\Http\Controllers\ProfileController::class,'myrecipes'])->name('profile.myrecipes');
 
 // レシピ内容画面へのルート
-Route::get('/recipes', [App\Http\Controllers\RecipeController::class, 'index'])->name('recipes');
+Route::get('/recipes/{id}', [App\Http\Controllers\RecipeController::class, 'index'])->name('recipes');
 
 // レシピ登録画面へのルート
-
 Route::get('/forms', [App\Http\Controllers\RecipeController::class, 'form'])->name('form');
 
 // レシピ一覧画面へのルート
@@ -45,14 +43,13 @@ Route::get('/list', [App\Http\Controllers\RecipeController::class, 'list'])->nam
 // レシピ編集画面へのルート
 Route::get('/edit/{id}', [App\Http\Controllers\RecipeController::class, 'edit'])->name('edit');
 
-Route::post('/delete', [App\Http\Controllers\RecipeController::class, 'delete'])->name('delete');
+Route::post('/delete', [App\Http\Controllers\RecipeController::class, 'destroy'])->name('delete');
 
 Route::post('/update/{recipeid}', [App\Http\Controllers\RecipeController::class, 'update'])->name('update');
 
 Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process1'])->name('recipe');
 
 Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process2'])->name('recipe');
-
 
 Route::post('/recipe', [App\Http\Controllers\RecipeController::class, 'process3'])->name('recipe');
 
