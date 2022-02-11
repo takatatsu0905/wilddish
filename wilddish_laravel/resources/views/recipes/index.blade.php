@@ -26,7 +26,7 @@
   </div>
   <div class="ingredients">
     <h1>材料</h1>
-    <div>{{$recipe->ingredients}}</div>
+    <div>{!! nl2br($recipe->ingredients) !!}</div>
   </div>
   <img src="/storage/{{ $recipe->image_name }}" width="200px" height="200px" class="image_name">
   <div class="process">
