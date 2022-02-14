@@ -47,6 +47,11 @@
           @endforeach
           <p class="ingredients">{{$recipe->ingredients}}</p>
         </div>
+        @if(Auth::check())
+        <div class="editmove">
+          <a href="/edit/{{$recipe->id}}">編集</a>
+        </div>
+        @endif
       </div>
     @endforeach
     </div>

@@ -16,24 +16,26 @@
       <div class="container">
         <div class="title">
           <h1>レシピの名前</h1>
-          <input type="text" name="title">
+          <input type="text" name="title" value="{{$recipe->title}}">
         </div>
         <div class="tool">
           <h1>使う調理器具</h1>
           <p>
             @foreach($toolList as $tool)
             <label>
-                <input type="checkbox" name="tools[]" value="{{ $tool->id }}" > {{ $tool->name }}
+                <input type="checkbox" name="tools[]" value="{{ $tool->id }}"> 
+                {{ $tool->name }}
             </label>
             @endforeach
           </p>
         </div>
         <div class="ingredients">
           <h1>材料</h1>
-          <textarea name="ingredients" id="" cols="30" rows="10"></textarea>
+          <textarea name="ingredients" id="" cols="30" rows="10" placeholder="{!! nl2br($recipe->ingredients) !!}"></textarea>
         </div>
         <div class="image_name">
           <h1>レシピ画像</h1>
+          <img src="/storage/{{ $recipe->image_name }}" width="200px" height="200px" class="image_name">
           <input type="file" name="image_name">
         </div>
         <div class="process">

@@ -41,7 +41,6 @@
     </div>
     @endforeach
   </div>
-  <a href="/edit/{{$recipe->id}}">編集</a>
 </div>
 </body>
 </html>
