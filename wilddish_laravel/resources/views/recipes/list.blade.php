@@ -17,20 +17,11 @@
           <input type="search" name="q" id="form-search">
       </div>
       <div>
-      <input type="checkbox" id="tool1" name="tool1">
-      <label for="tool1">tool_id1</label>
-      </div>
-      <div>
-      <input type="checkbox" id="tool2" name="tool2">
-      <label for="tool2">tool_id2</label>
-      </div>
-      <div>
-      <input type="checkbox" id="tool3" name="tool3">
-      <label for="tool3">tool_id3</label>
-      </div>
-      <div>
-      <input type="checkbox" id="tool4" name="tool4">
-      <label for="tool4">tool_id4</label>
+        @foreach($tools as $tool)
+          <label>
+            <input type="checkbox" name="tools[]" value="{{ $tool->id }}">{{ $tool->name }}
+          </label>
+        @endforeach
       </div>
       <button type="submit">レシピ検索</button>
     </form>

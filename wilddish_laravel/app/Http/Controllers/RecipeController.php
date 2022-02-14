@@ -26,6 +26,7 @@ class RecipeController extends Controller
     public function list()
     {
         $recipes = Recipe::all();
-        return view('recipes.list', ['recipes' => $recipes]);
+        $tools = Tool::all();
+        return view('recipes.list', compact('tools','recipes'));
     }
 }
