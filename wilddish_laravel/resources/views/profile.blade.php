@@ -53,7 +53,7 @@
     </div>
 
     
-        <div class="toukourecipe-box">
+        <!-- <div class="toukourecipe-box">
             <div class="toukourecipe">
                 <p class="toukourecipedai">投稿レシピ</p>
                 @foreach($recipes as $recipe)
@@ -75,8 +75,13 @@
                 </div>
                 @endforeach
             </div>
-            
+        </div> -->
+        <div class="myrecipes">
+            <button type="button" class="editbutton" onclick="location.href='{{route('profile.myrecipes',['id'=>$profile->id])}}'">
+            投稿レシピ
+            </button>
         </div>
+            
         <div class="to-recipetoukou">
             <a href="{{route('form')}}" >{{ __('レシピ投稿') }}</a>
         </div>

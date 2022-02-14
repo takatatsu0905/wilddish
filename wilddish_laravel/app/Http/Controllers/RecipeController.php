@@ -26,9 +26,9 @@ class RecipeController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
-        $recipe = Recipe::find(1);
+        $recipe = Recipe::find($id);
         
         return view('recipes.index', ['recipe' => $recipe]);
     }
@@ -186,8 +186,11 @@ class RecipeController extends Controller
         $recipeid = $request->recipeid;
         $recipe = Recipe::find($recipeid);
         $recipe->delete();
+        $recipe->processes()->each(function ($process) {
+            $process->delete();
+        });
         $recipe->tools()->detach();
-        return redirect('/forms');
+        return redirect('/profile');
     }
 
     public function process1(Request $request, $recipe_id)

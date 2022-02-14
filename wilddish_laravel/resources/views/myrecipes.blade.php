@@ -4,28 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>レシピ一覧画面</title>
+  <title>マイレシピ</title>
   @extends('layouts.app')
-  <link rel="stylesheet" href="{{ asset('css/list.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/myrecipes.css') }}">
   @section('content')
 </head>
 <body>
-    <form method="GET" action="{{route('search')}}">
-      @csrf
-      <div>
-          <label for="form-search">検索</label>
-          <input type="search" name="q" id="form-search">
-      </div>
-      <div>
-        @foreach($tools as $tool)
-          <label>
-            <input type="checkbox" name="tools[]" value="{{ $tool->id }}">{{ $tool->name }}
-          </label>
-        @endforeach
-      </div>
-      <button type="submit">レシピ検索</button>
-    </form>
-    <div class="container">
+  <div class="container">
     @foreach($recipes as $recipe)
       <div class="recipe">
         <div class="image_name">
@@ -38,11 +23,16 @@
           @endforeach
           <p class="ingredients">{{$recipe->ingredients}}</p>
         </div>
+        <button type="button" class="edit_button" onclick="location.href='/edit/{{$recipe->id}}'">
+          編集
+        </button>
+        <form action="{{ route('delete', ['recipeid' =>$recipe->id])}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+          <button type="submit" class="edit_button">削除</button>
+          {{ csrf_field() }}
+        </form>
       </div>
     @endforeach
-    </div>
+  </div>
 </body>
 </html>
 @endsection
-
-

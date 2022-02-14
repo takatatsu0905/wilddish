@@ -52,6 +52,9 @@
                                 </li>
                             @endif
                         @else
+                            <li class="dropdown-item"><a href="{{ route('profile') }}">プロフィール</a></li>
+                            <li class="dropdown-item"><a href="{{ route('list') }}">レシピ一覧</a></li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -69,6 +72,7 @@
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
                     </ul>
                 </div>
