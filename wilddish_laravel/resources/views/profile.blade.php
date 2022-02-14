@@ -22,6 +22,8 @@
 
 
 @section('content')
+
+<div class="to-recipe"><a href="{{route('list')}}">{{ __('レシピ検索') }}</a></div>
     
     
     <div class="icon-box">
