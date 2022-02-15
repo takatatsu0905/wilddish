@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Recipe;
 use App\Models\Tool;
-use App\Models\Process;
+use App\Models\Users;
 
 class RecipeController extends Controller
 {
@@ -27,6 +27,7 @@ class RecipeController extends Controller
     {
         $recipes = Recipe::all();
         $tools = Tool::all();
-        return view('recipes.list', compact('tools','recipes'));
+        $profile = Users::find(\Auth::id());
+        return view('recipes.list', compact('tools','recipes','profile'));
     }
 }
