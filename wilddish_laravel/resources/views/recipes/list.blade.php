@@ -38,10 +38,12 @@
           @endforeach
           <p class="ingredients">{{$recipe->ingredients}}</p>
         </div>
-        @if(Auth::check())
-        <div class="editmove">
-          <a href="/edit/{{$recipe->id}}">編集</a>
-        </div>
+        @if(!is_null($profile))
+          @if($recipe->user_id == $profile->id)
+            <div class="editmove">
+              <a href="/edit/{{$recipe->id}}">編集</a>
+            </div>
+          @endif
         @endif
       </div>
     @endforeach
