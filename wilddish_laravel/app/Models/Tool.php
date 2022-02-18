@@ -18,4 +18,5 @@ class Tool extends Model
     {
         return $this->belongsToMany(Recipe::class)->withTimestamps();
     }
+
 }

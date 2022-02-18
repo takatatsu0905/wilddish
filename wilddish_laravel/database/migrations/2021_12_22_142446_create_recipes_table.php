@@ -21,6 +21,8 @@ class CreateRecipesTable extends Migration
             $table->string('ingredients');
             $table->string('image_name')->nullable();
             $table->timestamps();
+
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

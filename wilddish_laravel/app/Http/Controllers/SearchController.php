@@ -86,12 +86,12 @@ class SearchController extends Controller
         //
     }
     public function search(Request $request)
-  { 
+  {
     $tools = Tool::all();
 
     $serach=$request->input('q');
 
-    
+
 
     // $tool1=$request->input('tool1');
 
@@ -100,6 +100,18 @@ class SearchController extends Controller
     // $tool3=$request->input('tool3');
 
     // $tool4=$request->input('tool4');
+
+
+    $toolId = $request->tools;
+    $query = Recipe::query();
+    $query->whereHas('tools', function($q) use($toolId)  {
+        $q->whereIn('recipe_tool.tool_id', $toolId);
+    });
+    if(isset($serach) && $serach != "") {
+        $query->where('title', 'like', '%'.$serach.'%');
+    }
+dd($query->get());
+
 
     $query=DB::table('recipes');
 
@@ -110,22 +122,20 @@ class SearchController extends Controller
     //検索ワードを半角スペースで区切る
     $keyword_array=preg_split('/[\s]+/', $serach_spaceharf, -1, PREG_SPLIT_NO_EMPTY);
 
-    
 
-    
 
     $query->where('title', 'like', '%'.$serach.'%')->whereIn('tool_id',$request->tools);
-    
+
     $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
 
-    
-    
+
+
     //   $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
 
 
     $recipes=$query->paginate(20);
 
-    
+
 
     return view('recipes/list',compact('recipes','tools'));
   }
