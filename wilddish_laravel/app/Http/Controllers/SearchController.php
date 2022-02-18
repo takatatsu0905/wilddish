@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tool;
+use App\Models\Recipe;
 
 class SearchController extends Controller
 {
@@ -109,28 +110,12 @@ class SearchController extends Controller
     //検索ワードを半角スペースで区切る
     $keyword_array=preg_split('/[\s]+/', $serach_spaceharf, -1, PREG_SPLIT_NO_EMPTY);
 
-    //検索ワードをループで回してマッチするレコードを探す
     
 
-    // foreach ($keyword_array as $keyword) {
-    //     $query->where('title', 'like', '%'.$keyword.'%');
-    //   }
-
-    //   if(!empty($serach)){
-    //     $query->where('title', 'like', '%'.$serach.'%');
-    //   }
-     
-
-    // if(!empty($tools)){foreach($tools as $tool){
-    //     $query->where('tool_id',$tool)->where('title', 'like', '%'.$serach.'%');
-    //     $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
-    // }}else{
-    //     $query->where('title', 'like', '%'.$serach.'%');
-    //     $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
-    // }
+    
 
     $query->where('title', 'like', '%'.$serach.'%')->whereIn('tool_id',$request->tools);
-    // $query->whereIn('tool_id',[$tools]);
+    
     $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
 
     
@@ -139,6 +124,8 @@ class SearchController extends Controller
 
 
     $recipes=$query->paginate(20);
+
+    
 
     return view('recipes/list',compact('recipes','tools'));
   }
