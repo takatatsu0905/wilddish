@@ -42,7 +42,11 @@
 
     <div class="selfintroduction-box">
         <div class="selfintroduction">
+            <?php if(is_null($profile->self_introduction)) : ?>
+            <p>自己紹介を書こう</p>
+            <?php else: ?>
             <p>{{$profile->self_introduction}}</p>
+            <?php endif; ?>
         </div>
         <!-- <a href="{{route('profile.edit',['id'=>$profile->id])}}">{{ __('編集') }}</a> -->
         
