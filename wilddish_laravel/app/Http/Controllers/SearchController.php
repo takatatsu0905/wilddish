@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tool;
 use App\Models\Recipe;
+use App\Models\Users;
+use Illuminate\Database\Eloquent\Model;
+
 
 class SearchController extends Controller
 {
@@ -18,6 +21,11 @@ class SearchController extends Controller
     {
         //
         return view('search');
+    }
+
+    public function recipes()
+    {
+        return $this->belongsToMany('Recipe','recipe_tool','tool_id','recipe_id');
     }
 
     /**
@@ -87,6 +95,9 @@ class SearchController extends Controller
     }
     public function search(Request $request)
   { 
+    // return $this->belongsToMany('Recipes','recipe_tool','tool_id','recipe_id');
+    
+    $profile = Users::find(\Auth::id());
     $tools = Tool::all();
 
     $serach=$request->input('q');
@@ -114,9 +125,17 @@ class SearchController extends Controller
 
     
 
-    $query->where('title', 'like', '%'.$serach.'%')->whereIn('tool_id',$request->tools);
+    // $query->where('title', 'like', '%'.$serach.'%')->whereIn('recipe_tool.tool_id',$request->tools);
+
+    $query = Recipe::query();
+    $query->where('title', 'like', '%'.$serach.'%');
+    if(!is_null($request->tools)){
+    $query->whereHas('tools',function($q) use($request){
+        $q->whereIn('recipe_tool.tool_id',$request->tools);
+    });
+};
     
-    $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
+    $query->select('id','user_id','image_name', 'title','ingredients');
 
     
     
@@ -127,6 +146,6 @@ class SearchController extends Controller
 
     
 
-    return view('recipes/list',compact('recipes','tools'));
+    return view('recipes/list',compact('recipes','tools','profile'));
   }
 }
