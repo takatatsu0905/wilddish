@@ -11,37 +11,42 @@
   @section('content')
 </head>
 <body>
-<div class="container">
-  <div class="title">
-    <h1>レシピの名前</h1>
-    <div>{{$recipe->title}}</div>
-  </div>
-  <div class="tool">
-    <h1>使う調理器具</h1>
-    <div>
-      @foreach($recipe->tools as $tool)
-      <div>{{$tool->name}}</div>
+  <main>
+    <div class="flex">
+      
+      <div class="recipe">
+        <h1 class="page-title">{{$recipe->title}}</h1>
+
+        <h2 class="content-title">使う調理器具</h2>
+        <ol class="tool-list">
+          @foreach($recipe->tools as $tool)
+          <li>{{$tool->name}}</li>
+          @endforeach
+        </ol>
+
+        <h2 class="content-title">材料</h2>
+        <div class="ingredient-list">
+          {!! nl2br($recipe->ingredients) !!}
+        </div>    
+      </div>
+      <div class="image">
+        <img src="/storage/{{ $recipe->image_name }}" width="600px" height="600px">
+      </div>
+
+    </div>
+    <div class="process">
+      @foreach($recipe->processes as $process)
+      <div class="processrecipe">
+        <div class="turn">{{$process->turn}}</div>
+        <div class="processtitle">{{$process->process_title}}</div>
+        <div class="processmake">{{$process->make}}</div>
+        @if($process['image_name'] != null)
+        <img src="/storage/{{ $process->image_name }}" width="200px" height="200px">
+        @endif
+      </div>
       @endforeach
     </div>
-  </div>
-  <div class="ingredients">
-    <h1>材料</h1>
-    <div>{!! nl2br($recipe->ingredients) !!}</div>
-  </div>
-  <img src="/storage/{{ $recipe->image_name }}" width="200px" height="200px" class="image_name">
-  <div class="process">
-    @foreach($recipe->processes as $process)
-    <div>
-      <div>{{$process->turn}}</div>
-      <div>{{$process->process_title}}</div>
-      <div>{{$process->make}}</div>
-      @if($process['image_name'] != null)
-      <img src="/storage/{{ $process->image_name }}" width="200px" height="200px">
-      @endif
-    </div>
-    @endforeach
-  </div>
-</div>
+  </main>
 </body>
 </html>
 @endsection
