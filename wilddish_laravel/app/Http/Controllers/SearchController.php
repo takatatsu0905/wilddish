@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tool;
 use App\Models\Recipe;
+use App\Models\Users;
+use Illuminate\Database\Eloquent\Model;
+
 
 class SearchController extends Controller
 {
@@ -18,6 +21,11 @@ class SearchController extends Controller
     {
         //
         return view('search');
+    }
+
+    public function recipes()
+    {
+        return $this->belongsToMany('Recipe','recipe_tool','tool_id','recipe_id');
     }
 
     /**
@@ -93,9 +101,12 @@ class SearchController extends Controller
 
         $toolId = $request->tools;
         $query = Recipe::query();
-        $query->whereHas('tools', function($q) use($toolId)  {
-            $q->whereIn('recipe_tool.tool_id', $toolId);
-        });
+        if(!is_null($request->tools)){
+            $query->whereHas('tools', function($q) use($toolId)  {
+                $q->whereIn('recipe_tool.tool_id', $toolId);
+            });
+        }
+
         if(isset($serach) && $serach != "") {
             $query->where('title', 'like', '%'.$serach.'%');
         }
