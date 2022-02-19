@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>レシピ登録画面</title>
+  <title>レシピ編集画面</title>
   @extends('layouts.app')
   <link rel="stylesheet" href="{{ asset('css/form.css') }}">
   <script src="{{ mix('js/form.js') }}"></script>
@@ -31,7 +31,7 @@
         </div>
         <div class="ingredients">
           <h1>材料</h1>
-          <textarea name="ingredients" id="" cols="30" rows="10" placeholder="{!! nl2br($recipe->ingredients) !!}"></textarea>
+          <textarea name="ingredients" id="" cols="30" rows="10">{!! nl2br($recipe->ingredients) !!}</textarea>
         </div>
         <div class="image_name">
           <h1>レシピ画像</h1>

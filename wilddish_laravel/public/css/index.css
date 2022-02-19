@@ -1,9 +1,70 @@
-.image_name{
-  position: absolute;
-  top: 150px;
-  right: 500px;
+html {
+  font-size: 100%;
 }
-
-.process{
+body {
+  color: #2b2a27;
+  font-family: "Helvetica Neue", "Arial", "Hiragino Sans", "Meiryo", sans-serif;
+}
+img {
+  max-width: 100%;
+}
+.flex {
   display: flex;
+  margin-top: 10px;
+}
+.flex .image {
+  width: 50%;
+}
+/*
+高さは700pxで固定し、「object-fit: cover;」で
+高さを固定したまま画面幅にあわせて画像を拡大縮小させる
+*/
+.flex .image img {
+  margin-top: 30px;
+  vertical-align: bottom;
+}
+.flex .recipe {
+  margin-left: 170px;
+  margin-right: 30px;
+  width: 50%;
+  padding: 40px 5% 0 5%;
+}
+.flex .recipe .page-title {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+.flex .recipe .content-title {
+  border-bottom: solid 1px #ccc;
+  font-size: 1.25rem;
+  padding-bottom: 5px;
+  margin: 40px 0 15px 0;
+}
+.flex .recipe .ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex .recipe .tool-list li {
+  border-bottom: dotted 1px #ccc;
+  padding: 6px 0;
+  margin-left: 20px;
+}
+.process{
+  margin-left: 250px;
+}
+.processrecipe{
+  margin-right: 20px;
+}
+.turn{
+margin-bottom: 10px;
+font-weight: bold;
+font-size: 35px;
+}
+.processtitle{
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.processmake{
+  margin-bottom: 20px;
+
 }
