@@ -121,6 +121,7 @@ class SearchController extends Controller
     //     //   $query->select('id','user_id','image_name', 'title','tool_id','ingredients');
 
         $recipes=$query->paginate(20);
-        return view('recipes/list',compact('recipes','tools'));
+        $profile = Users::find(\Auth::id());
+        return view('recipes/list',compact('recipes','tools','profile'));
     }
 }
