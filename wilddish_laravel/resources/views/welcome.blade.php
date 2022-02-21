@@ -85,9 +85,20 @@
 
         <!-- 検索フォーム＆img画像 -->
         <div class="top-style">
-            <form action="">
-                <input type="text" name="search">
-                <input type="submit" name="send" value="検索">
+            <form method="GET" action="{{route('search')}}">
+                @csrf
+                <div>
+                    <label for="form-search">検索</label>
+                    <input type="search" name="q" id="form-search">
+                </div>
+                <div>
+                    @foreach($tools as $tool)
+                    <label>
+                        <input type="checkbox" name="tools[]" value="{{ $tool->id }}">{{ $tool->name }}
+                    </label>
+                    @endforeach
+                </div>
+                <button type="submit">レシピ検索</button>
             </form>
             <img class="topimg" src="{{asset('wilddish_img\wilddishトップ画像.png')}}" alt="">
         </div>

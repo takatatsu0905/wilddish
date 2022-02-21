@@ -26,27 +26,27 @@
       <button type="submit">レシピ検索</button>
     </form>
     <div class="container">
-    @foreach($recipes as $recipe)
-      <div class="recipe">
-        <div class="image_name">
-          <img src="/storage/{{ $recipe->image_name }}" width="150px" height="150px">
-        </div>
-        <div class="menu">
-          <div class="title"><a href="/recipes/{{$recipe->id}}">{{$recipe->title}}</a></div>
-          @foreach($recipe->tools as $tool)
-          <p class="tool">{{$tool->name}}</p>
-          @endforeach
-          <p class="ingredients">{{$recipe->ingredients}}</p>
-        </div>
-        @if(!is_null($profile))
-          @if($recipe->user_id == $profile->id)
-            <div class="editmove">
-              <a href="/edit/{{$recipe->id}}">編集</a>
-            </div>
+      @foreach($recipes as $recipe)
+        <div class="recipe">
+          <div class="image_name">
+            <img src="/storage/{{ $recipe->image_name }}" width="200px" height="200px">
+          </div>
+          <div class="menu">
+            <div class="title"><a href="/recipes/{{$recipe->id}}">{{$recipe->title}}</a></div>
+            @foreach($recipe->tools as $tool)
+            <p class="tool">{{$tool->name}}</p>
+            @endforeach
+            <p class="ingredients">{{$recipe->ingredients}}</p>
+          </div>
+          @if(!is_null($profile))
+            @if($recipe->user_id == $profile->id)
+              <div class="editmove">
+                <a href="/edit/{{$recipe->id}}">編集</a>
+              </div>
+            @endif
           @endif
-        @endif
-      </div>
-    @endforeach
+        </div>
+      @endforeach
     </div>
 </body>
 </html>

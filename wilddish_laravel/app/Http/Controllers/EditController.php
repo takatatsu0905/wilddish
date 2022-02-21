@@ -113,7 +113,6 @@ class EditController extends Controller
             'make' => $request->process_make5
         ];
 
-        
         Recipe::where('id', $recipeid)->update($update);
         $recipe = Recipe::find($recipeid);
         $recipe->tools()->sync(request()->tools);

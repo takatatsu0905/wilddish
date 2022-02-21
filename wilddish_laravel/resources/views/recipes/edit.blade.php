@@ -47,43 +47,43 @@
           </div>
           <div class="process02">
             <div class="process2" id="process2">
-              <input type="number" min="2" max="2" name="turn2"><br>
+              <input type="number" value="2" min="2" max="2" name="turn2"><br>
               <input type="text" name="process_title2"><br>
               <input type="file" name="process_image2"><br>
               <textarea name="process_make2" id="" cols="30" rows="10"></textarea><br>
             </div>
             <input type="button" value="表示" onclick="document.getElementById('process2').style.display = 'block';">
-          <input type="button" value="非表示" onclick="document.getElementById('process2').style.display = 'none';">  
+            <input type="button" value="非表示" onclick="document.getElementById('process2').style.display = 'none';">  
           </div>
           <div class="process03">
             <div class="process3" id="process3">
-              <input type="number" min="3" max="3" name="turn3"><br>
+              <input type="number" value="3" min="3" max="3" name="turn3"><br>
               <input type="text" name="process_title3"><br>
               <input type="file" name="process_image3"><br>
               <textarea name="process_make3" id="" cols="30" rows="10"></textarea><br>
             </div>
             <input type="button" value="表示" onclick="document.getElementById('process3').style.display = 'block';">
-          <input type="button" value="非表示" onclick="document.getElementById('process3').style.display = 'none';">  
+            <input type="button" value="非表示" onclick="document.getElementById('process3').style.display = 'none';">  
           </div>
           <div class="process04">
             <div class="process4" id="process4">
-              <input type="number" min="4" max="4" name="turn4"><br>
+              <input type="number" value="4" min="4" max="4" name="turn4"><br>
               <input type="text" name="process_title4"><br>
               <input type="file" name="process_image4"><br>
               <textarea name="process_make4" id="" cols="30" rows="10"></textarea><br>
             </div>
             <input type="button" value="表示" onclick="document.getElementById('process4').style.display = 'block';">
-          <input type="button" value="非表示" onclick="document.getElementById('process4').style.display = 'none';">  
+            <input type="button" value="非表示" onclick="document.getElementById('process4').style.display = 'none';">  
           </div>
           <div class="process05">
             <div class="process5" id="process5">
-              <input type="number" min="5" max="5" name="turn5"><br>
+              <input type="number" value="5" min="5" max="5" name="turn5"><br>
               <input type="text" name="process_title5"><br>
               <input type="file" name="process_image5"><br>
               <textarea name="process_make5" id="" cols="30" rows="10"></textarea><br>
             </div>
             <input type="button" value="表示" onclick="document.getElementById('process5').style.display = 'block';">
-          <input type="button" value="非表示" onclick="document.getElementById('process5').style.display = 'none';">  
+            <input type="button" value="非表示" onclick="document.getElementById('process5').style.display = 'none';">  
           </div>
         </div>
         <button type="submit">編集</button>

@@ -1,13 +1,17 @@
 .tool{
   margin-top: 20px;
 }
-
 .image_name{
   position: absolute;
   top: 150px;
   right: 500px;
 }
-
 .process{
   display: flex;
+}
+.process4{
+  display:none;
+}
+.process5{
+  display:none;
 }
