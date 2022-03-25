@@ -36,6 +36,7 @@
     </div>
     <div class="process">
       @foreach($recipe->processes as $process)
+      @if($process['process_title'] != null)
       <div class="processrecipe">
         <div class="turn">{{$process->turn}}</div>
         <div class="processtitle">{{$process->process_title}}</div>
@@ -44,6 +45,7 @@
         <img src="/storage/{{ $process->image_name }}" width="200px" height="200px">
         @endif
       </div>
+      @endif
       @endforeach
     </div>
   </main>

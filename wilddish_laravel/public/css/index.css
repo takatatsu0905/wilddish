@@ -66,5 +66,7 @@ font-size: 35px;
 }
 .processmake{
   margin-bottom: 20px;
-
+}
+.process{
+  display: flex;
 }

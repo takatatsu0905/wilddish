@@ -60,8 +60,9 @@ Route::post('/recipe', [App\Http\Controllers\FormController::class, 'process5'])
 Route::post('/recipe', [App\Http\Controllers\FormController::class, 'store'])->name('recipe');
 
 
-Route::get('/top', [App\Http\Controllers\topController::class, 'index'])->name('top');
+Route::get('', [App\Http\Controllers\topController::class, 'index'])->name('top');
 
-Route::post('/top', [App\Http\Controllers\topController::class, 'index'])->name('top');
+Route::get('/topsearch', [App\Http\Controllers\topController::class, 'search'])->name('topsearch');
+
 
 
